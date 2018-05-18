@@ -19,8 +19,7 @@ const BASE_PATH = path.resolve(__dirname);
 
 const config = {
   entry: {
-    app: path.resolve(APP_PATH,'./js/index.js'),
-    html: path.resolve(APP_PATH, './js/html.js')
+    app: path.resolve(APP_PATH,'./js/index.js')
   },
   output: {
     path: BUILD_PATH,
@@ -156,10 +155,10 @@ const config = {
       filename: 'index.html',
       template: path.resolve(APP_PATH,'index.ejs')
     }),
-    new HtmlWebpackPlugin({
+   /* new HtmlWebpackPlugin({
       filename: 'html.html',
       template: path.resolve(APP_PATH,'html.html')
-    }),
+    }),*/
     new ExtractTextWebpack('[name].css'),
     new StyleLintPllugin({
       context: 'src',

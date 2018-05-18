@@ -1,6 +1,7 @@
 # webpack自动化方案
 ### 目录
 - 
+- PostCSS
 
 ***
 ### 未完成
@@ -10,3 +11,5 @@
 - 支持vue.js & react.js
 - stylelint规则完善
 - 打包路径优化
+- typescript
+- flow
