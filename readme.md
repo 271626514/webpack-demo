@@ -2,6 +2,9 @@
 ### 目录
 - 
 - PostCSS
+- typescript
+
+`npm i -D typescript awesome-typescript-loader`
 
 ***
 ### 未完成
@@ -11,5 +14,4 @@
 - 支持vue.js & react.js
 - stylelint规则完善
 - 打包路径优化
-- typescript
 - flow

@@ -19,7 +19,8 @@ const BASE_PATH = path.resolve(__dirname);
 
 const config = {
   entry: {
-    app: path.resolve(APP_PATH,'./js/index.js')
+  //  app: path.resolve(APP_PATH,'./js/index.js')
+    app: path.resolve(APP_PATH,'./js/react-main.js')
   },
   output: {
     path: BUILD_PATH,
@@ -99,6 +100,10 @@ const config = {
         test: /\.(jsx?|es6|babel)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.otf|ttf|woff2?|eot(\?\S*)?$/,
