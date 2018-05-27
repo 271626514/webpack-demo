@@ -15,6 +15,7 @@ module.exports = {
   'rules': {
     'arrow-parens': 0,
     'no-alert': 0,
+    'no-console': 'off',
     'generator-star-spacing': 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     "react/jsx-uses-react": "warn",
