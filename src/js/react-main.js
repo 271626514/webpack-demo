@@ -23,12 +23,9 @@ class Main extends React.Component {
   }
   componentDidMount () {
     // console.log(this.props)
-    /*getServiceDate.then(res=> {
-      console.log(res)
-    })*/
+
   }
   render () {
-    let _this = this
     return  <Router>
         <Layout style={{ minHeight: '100vh' }}>
           <Sider
@@ -39,7 +36,7 @@ class Main extends React.Component {
             <div className="logo"></div>
             <Menu defaultSelectedKeys={['1']} mode="inline">
               <Menu.Item key="1">
-                <span><Link to="/cdncache" />CDN工具</span>
+                <span><Link to="/" />CDN工具</span>
               </Menu.Item>
               <Menu.Item key="2">
                 <span><Link to="/imgupload" />提交图片</span>
@@ -50,8 +47,8 @@ class Main extends React.Component {
             <Header />
             <Content style={{ margin: '0 16px' }}>
               <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                <Route path="/cdncache" component={CdnCache} />
-                <Route path="/imgupload" component={ImageUpload} />
+                <Route exact path='/' component={CdnCache}/>
+                <Route path='/imgupload' component={ImageUpload}/>
               </div>
             </Content>
             <Footer>
