@@ -20,6 +20,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
-    "no-unused-vars": 'warn'
+    "no-unused-vars": 'off'
   }
 }

@@ -2,10 +2,10 @@
  * Created by qiankun on 2018/5/27.
  */
 
-const getV2exList = () => {
-  return fetch('https://www.v2ex.com/api/topics/hot.json')
+const getServiceDate = () => {
+  return fetch('//api.mall.autohome.com.cn/time/getTime?_appid=mall')
 }
 
 module.exports = {
-  getV2exList
+  getServiceDate
 }

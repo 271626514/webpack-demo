@@ -3,28 +3,16 @@
  */
 import * as React from 'react'
 import { render } from 'react-dom'
-import {getV2exList} from '../service/api'
+import { Layout, Menu } from 'antd';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import {getServiceDate} from '../service/api'
+
+import ImageUpload from '../page/ImageUpload'
+import CdnCache from '../page/CdnCache'
+
 import '../style/layout.less'
 
-import { Layout, Menu } from 'antd';
-import { Router, Route, Link } from 'react-router'
 const { Header, Footer, Sider, Content } = Layout;
-
-const App = React.createReactClass({
-  render () {
-    return (
-      <div>
-        <h1>APP</h1>
-        <ul>
-          <li><Link to="/opting1" />option1</li>
-          <li><Link to="/opting2" />option2</li>
-        </ul>
-        {this.props.children}
-      </div>
-    )
-  }
-})
-
 
 class Main extends React.Component {
   state = {
@@ -34,43 +22,45 @@ class Main extends React.Component {
     this.setState({ collapsed });
   }
   componentDidMount () {
-    getV2exList().then(res => {
-      console.log(JSON.stringify(res))
-    }).catch(err => {
-      console.log(err)
-    })
+    // console.log(this.props)
+    /*getServiceDate.then(res=> {
+      console.log(res)
+    })*/
   }
   render () {
-    return  <Layout style={{ minHeight: '100vh' }}>
-      <Sider
-        collapsible
-        collapsed={this.state.collapsed}
-        onCollapse={this.onCollapse}
-      >
-        <div className="logo"></div>
-        <Menu defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1">
-            <span>Option 1</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <span>Option 2</span>
-          </Menu.Item>
-          <Menu.Item key="9">
-            <span>File</span>
-          </Menu.Item>
-        </Menu>
-      </Sider>
-      <Layout>
-        <Header />
-        <Content style={{ margin: '0 16px' }}>
-          <div style={{ padding: 24, background: '#fff', minHeight: 360 }}></div>
-        </Content>
-        <Footer>
-          mall.autohome.com.cn
-        </Footer>
-      </Layout>
-    </Layout>
+    let _this = this
+    return  <Router>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Sider
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+          >
+            <div className="logo"></div>
+            <Menu defaultSelectedKeys={['1']} mode="inline">
+              <Menu.Item key="1">
+                <span><Link to="/cdncache" />CDN工具</span>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <span><Link to="/imgupload" />提交图片</span>
+              </Menu.Item>
+            </Menu>
+          </Sider>
+          <Layout>
+            <Header />
+            <Content style={{ margin: '0 16px' }}>
+              <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                <Route path="/cdncache" component={CdnCache} />
+                <Route path="/imgupload" component={ImageUpload} />
+              </div>
+            </Content>
+            <Footer>
+              mall.autohome.com.cn
+            </Footer>
+          </Layout>
+        </Layout>
+      </Router>
   }
 }
 
-render(<Main/>, window.document.getElementById('app'))
+render(<Main />, window.document.getElementById('app'))
